@@ -16,7 +16,7 @@ contract TestUniswap {
         uint256 amountOutMin,
         address _to
     ) external {
-
+        IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
     }
 
 }
