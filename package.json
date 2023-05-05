@@ -13,6 +13,7 @@
     "hardhat": "^2.14.0"
   },
   "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
     "@openzeppelin/contracts": "^4.8.3",
     "bn.js": "^5.2.1",
     "dotenv": "^16.0.3"
