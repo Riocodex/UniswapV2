@@ -12,5 +12,11 @@ contract("TestUniswap", (accounts) =>{
     const AMOUNT_OUT_MIN = 1;
     const TOKEN_IN = DAI;
     const TOKEN_OUT = WBTC;
-    const TO = accounts[0];
+    const TO = accounts[0]; 
+
+    it("should swap", async() =>{
+        const tokenIn = await IERC20.at(TOKEN_IN)
+        const tokenOut = await IERC20.at(TOKEN_OUT)
+        const testUniswap = await TestUniswap.new()
+    })
 })
