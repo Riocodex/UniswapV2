@@ -18,5 +18,19 @@ contract("TestUniswap", (accounts) =>{
         const tokenIn = await IERC20.at(TOKEN_IN)
         const tokenOut = await IERC20.at(TOKEN_OUT)
         const testUniswap = await TestUniswap.new()
+
+        await tokenIn.approve(testUniswap.address, AMOUNT_IN,{ from: WHALE })
+        await testUniswap.swap(
+            tokenIn.address,
+            tokenOut.address,
+            AMOUNT_IN,
+            AMOUNT_OUT_MIN,
+            TO,
+            {
+                from: WHALE,
+            }
+        )
+
+        console.log(`out ${await tokenOut.balanceOf(TO)}`)
     })
 })
