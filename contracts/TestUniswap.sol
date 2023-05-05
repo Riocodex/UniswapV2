@@ -13,7 +13,7 @@ contract TestUniswap {
         address _tokenIn,
         address _tokenOut,
         uint256 _amountIn,
-        uint256 amountOutMin,
+        uint256 _amountOutMin,
         address _to
     ) external {
         IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
@@ -24,7 +24,14 @@ contract TestUniswap {
         path[0] = _tokenIn;
         path[1] = WETH;
         path[2] = _tokenOut;
-        
+
+        IUniswapV2Router(UNISWAP_V2_ROUTER).swapExactTokensforTokens(
+            _amountIn,
+            _amountOutMin,
+            path,
+            _to,
+            block.timestamp
+        );
     }
 
 }
