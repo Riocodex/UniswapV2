@@ -17,6 +17,7 @@ contract TestUniswap {
         address _to
     ) external {
         IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
+        IERC20(_tokenIn).approve(UNISWAP_V2_ROUTER, _amountIn);
     }
 
 }
