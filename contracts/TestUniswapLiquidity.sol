@@ -40,7 +40,11 @@ contract TestUniswapLiquidity {
   }
 
   function removeLiquidity(address _tokenA, address _tokenB) external {
-    address pair = IUniswapV2Factory(FACTORY).getPair(_tokenA, _tokenB);
+    address pair = IUniswapV2Factory(FACTORY).getPair(_tokenA, _tokenB);  
+
+    uint256 liquidity = IERC20(pair).balanceOf(address(this));
+
+    IERC20(pair).approve(ROUTER,liquidity);
   }
 
 }
