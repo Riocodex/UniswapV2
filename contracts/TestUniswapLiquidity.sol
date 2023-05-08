@@ -22,6 +22,21 @@ contract TestUniswapLiquidity {
 
     IERC20(_tokenA).approve(ROUTER, _amountA);
     IERC20(_tokenB).approve(ROUTER, _amountB);
+    (uint256 amountA, uint256 amountB, uint256 liquidity) = 
+    IUniswapV2Router(ROUTER).addLiquidity(
+        _tokenA,
+        _tokenB,
+        _amountA,
+        _amountB,
+        1,
+        1,
+        address(this),
+        block.timestamp
+    );
+
+    emit Log("amount A", amountA);
+    emit Log("amountB", amountB);
+    emit Log("Liquidity",liquidity);
   }
 
 }
