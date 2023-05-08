@@ -39,4 +39,8 @@ contract TestUniswapLiquidity {
     emit Log("Liquidity",liquidity);
   }
 
+  function removeLiquidity(address _tokenA, address _tokenB) external {
+    address pair = IUniswapV2Factory(FACTORY).getPair(_tokenA, _tokenB);
+  }
+
 }
