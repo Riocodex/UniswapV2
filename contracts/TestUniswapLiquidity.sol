@@ -12,7 +12,16 @@ contract TestUniswapLiquidity {
   event Log(string message, unt256 val);
 
   function addLiquidity(
-    add
-  )
+    address _tokenA,
+    address _tokenB,
+    uint256 _amountA,
+    uint256 _amountB
+  )external{
+    IERC20(_tokenA).transferFrom(msg.sender, address(this), _amountA);
+    IERC20(_tokenB).transferFrom(msg.sender, address(this), _amountB);
+
+    IERC20(_tokenA).approve(ROUTER, _amountA);
+    IERC20(_tokenB).approve(ROUTER, _amountB);
+  }
 
 }
