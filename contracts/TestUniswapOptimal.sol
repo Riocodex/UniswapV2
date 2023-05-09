@@ -14,6 +14,28 @@ contract TestUniswapOptimal {
   
     // import "@uniswap/lib/contracts/libraries/Babylonian.sol";
     function sqrt(uint y)internal pure returns(uint z){
-        if(y > 3){}
+        if(y > 3){
+            z = y;
+            uint x = y/ 2 + 1;
+            while( x < z) {
+                z = x;
+                x = (y / x + x) /2 ;
+            }
+        } else if (y != 0) {
+            z =1;
+        }
+
+        //else z = 0(default value)
+
+             /*
+            s = optimal swap amount
+            r = amount of reserve for token a
+            a = amount of token a the user currently has (not added to reserve yet)
+            f = swap fee percent
+            s = (sqrt(((2 - f)r)^2 + 4(1 - f)ar) - (2 - f)r) / (2(1 - f))
+            */
+         function zap(
+            address
+         )
     }
 }
