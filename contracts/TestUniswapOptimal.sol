@@ -35,7 +35,7 @@ contract TestUniswapOptimal {
             s = (sqrt(((2 - f)r)^2 + 4(1 - f)ar) - (2 - f)r) / (2(1 - f))
             */
          function zap(
-            address
+            address _
          )
     }
 }
