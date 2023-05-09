@@ -34,8 +34,15 @@ contract TestUniswapOptimal {
             f = swap fee percent
             s = (sqrt(((2 - f)r)^2 + 4(1 - f)ar) - (2 - f)r) / (2(1 - f))
             */
-         function zap(
-            address _
-         )
+        
     }
+        function zap(
+            address _tokenA,
+            address _tokenB,
+            uint _amountA
+        ) external {
+            IERC20(_tokenA).transferFrom(msg.sender, address(this), _amountA);
+            
+            address pair
+        }
 }
